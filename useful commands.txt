@@ -1,0 +1,25 @@
+Working directory:
+cd documents\github\sfksolar
+
+Activate virtual environment:
+venv\scripts\activate
+
+Extract and update translations:
+pybabel extract -F babel.cfg -k _l -o messages.pot .
+pybabel update -i messages.pot -d app/translations
+
+Compile edited translations:
+pybabel compile -d app/translations
+
+Migrate modified database table:
+flask db migrate -m "parameters table"
+flask db upgrade
+
+Run flask in debug mode:
+flask --debug run
+
+set flask app:
+FLASK_APP=SFKsolar.py
+
+install all required packages
+pip install -r requirements.txt
